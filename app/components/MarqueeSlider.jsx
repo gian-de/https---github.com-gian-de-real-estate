@@ -51,15 +51,15 @@ const employeeImages = [
 export const MarqueeHouseSlider = () => {
   return (
     <div className="w-full">
-      <Marquee speed={120} gradientWidth={50}>
+      <Marquee speed={70} gradientWidth={false}>
         <div className="flex items-center gap-10 overflow-hidden md:gap-24">
           {houseImages.map(({ src, id }) => (
             <span
               key={id}
-              className="flex w-48 h-56 md:h-[20rem] md:w-[28rem] shrink-0 md:last:mr-24 last:mr-10 cursor-pointer"
+              className="flex w-80 h-48 md:h-64 md:w-[27rem] shrink-0 md:last:mr-24 last:mr-10 cursor-pointer"
             >
               <Image
-                className="object-cover transition-transform duration-150 ease-linear origin-center rounded-md hover:-rotate-2"
+                className="object-cover transition-transform duration-150 ease-linear origin-center rounded-sm hover:-rotate-1"
                 src={src}
                 alt="modern house that is move in ready, ready to be sold"
                 priority
@@ -74,16 +74,16 @@ export const MarqueeHouseSlider = () => {
 export const MarqueeEmployeeSlider = () => {
   return (
     <div className="w-full">
-      <Marquee speed={120} gradientWidth={50}>
+      <Marquee speed={50} gradientWidth={false}>
         <div className="flex items-center gap-10 overflow-hidden md:gap-24">
           {employeeImages.map(({ src, id, name, job }) => (
             <div
               key={id}
-              className="flex flex-col cursor-pointer group md:last:mr-24 last:mr-10"
+              className="flex flex-col cursor-pointer group md:last:mr-24 last:mr-10 drop-shadow-md"
             >
               <div
                 key={id}
-                className="flex w-56  h-80 md:h-[32rem] md:w-96 shrink-0 group-hover:scale-105 transition-transform duration-150 ease-linear origin-center"
+                className="flex w-56 transition-transform duration-150 ease-linear origin-center sm:w-72 h-72 sm:h-80 shrink-0 group-hover:scale-105 "
               >
                 <Image
                   className="object-cover rounded-t-md"
@@ -92,11 +92,11 @@ export const MarqueeEmployeeSlider = () => {
                   priority
                 />
               </div>
-              <div className="flex flex-col items-center justify-center text-center transition-transform duration-150 ease-linear origin-center bg-gray-100 group-hover:scale-105">
-                <h3 className="w-full pt-4 pb-2 text-xl font-medium md:text-3xl ">
+              <div className="flex flex-col items-center justify-center text-center transition-transform duration-150 ease-linear origin-center bg-gray-100 rounded-b-md group-hover:scale-105">
+                <h3 className="w-full pt-4 pb-1 text-xl font-medium md:text-2xl ">
                   {name}
                 </h3>
-                <p className="w-full pb-4 text-sm uppercase md:text-xl text-orange-default">
+                <p className="w-full pb-4 text-sm font-bold uppercase md:text-md text-green-brand">
                   {job}
                 </p>
               </div>

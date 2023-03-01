@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        orange: {
-          default: "#d94d11",
+        green: {
+          brand: "#7c9c71",
         },
       },
     },
