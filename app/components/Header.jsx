@@ -62,10 +62,10 @@ export const Header = () => {
 
   return (
     <header
-      className="sticky top-0 z-20 w-full bg-white shadow-lg"
+      className="sticky top-0 z-20 w-full bg-white shadow-md"
       // onClick={(e) => e.stopPropagation()}
     >
-      <div className="container relative flex items-center justify-between h-16 max-w-6xl p-4 mx-auto">
+      <div className="container relative flex items-center justify-between h-16 max-w-6xl p-5 mx-auto">
         <Link href="/">
           <div className="flex shrink-0">
             <Image
@@ -95,7 +95,7 @@ export const Header = () => {
         >
           {isLgBreakpoint || mobileOpen ? (
             <>
-              <ul className="flex flex-col items-center justify-center py-2 space-y-6 text-lg lg:py-0 lg:mr-32 lg:space-y-0 lg:text-base lg:gap-6 lg:flex lg:flex-row">
+              <ul className="flex flex-col items-center justify-center py-2 space-y-6 text-lg lg:py-0 lg:pl-3 lg:mr-32 lg:space-y-0 lg:text-base lg:gap-6 lg:flex lg:flex-row">
                 <li
                   className="relative group"
                   onMouseEnter={handleHover}
@@ -154,7 +154,7 @@ export const Header = () => {
               </ul>
               <div className="flex items-center justify-center w-full pt-2 lg:pt-0 lg:w-auto">
                 <Link
-                  className="w-3/5 px-4 py-1 text-center text-white transition rounded-full lg:w-auto lg:flex bg-green-brand hover:bg-black"
+                  className="w-3/5 px-4 py-1 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
                   href="/"
                 >
                   Get a free appraisal

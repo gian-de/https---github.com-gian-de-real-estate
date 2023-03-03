@@ -20,6 +20,7 @@ import employee4 from "public/pexels-employee-4.jpg";
 import employee5 from "public/pexels-employee-5.jpg";
 import employee6 from "public/pexels-employee-6.jpg";
 import employee7 from "public/pexels-employee-7.jpg";
+import Link from "next/link";
 
 const houseImages = [
   { src: house1, id: "1" },
@@ -34,32 +35,69 @@ const houseImages = [
 ];
 
 const employeeImages = [
-  { src: employee1, id: "11", name: "Nicole Smith", job: "real estate agent" },
-  { src: employee2, id: "12", name: "James Marshall", job: "head of sales" },
+  {
+    src: employee1,
+    id: "11",
+    name: "Nicole Smith",
+    job: "real estate agent",
+    slug: "nicole-smith",
+  },
+  {
+    src: employee2,
+    id: "12",
+    name: "James Marshall",
+    job: "head of sales",
+    slug: "james-marshall",
+  },
   {
     src: employee3,
     id: "13",
     name: "Sarah Harrison",
     job: "property manager",
+    slug: "sarah-harrison",
   },
-  { src: employee4, id: "14", name: "Clarke Davis", job: "vice president" },
-  { src: employee5, id: "15", name: "Angela Steele", job: "real estate agent" },
-  { src: employee6, id: "16", name: "Michael Prince", job: "director" },
-  { src: employee7, id: "17", name: "Sammy Johnson", job: "real estate agent" },
+  {
+    src: employee4,
+    id: "14",
+    name: "Clarke Davis",
+    job: "vice president",
+    slug: "clarke-davis",
+  },
+  {
+    src: employee5,
+    id: "15",
+    name: "Angela Steele",
+    job: "real estate agent",
+    slug: "angela-steele",
+  },
+  {
+    src: employee6,
+    id: "16",
+    name: "Michael Prince",
+    job: "director",
+    slug: "michael-prince",
+  },
+  {
+    src: employee7,
+    id: "17",
+    name: "Sammy Johnson",
+    job: "real estate agent",
+    slug: "sammy-johnson",
+  },
 ];
 
 export const MarqueeHouseSlider = () => {
   return (
     <div className="w-full">
-      <Marquee speed={70} gradientWidth={false}>
-        <div className="flex items-center gap-10 overflow-hidden md:gap-24">
+      <Marquee speed={90} gradientWidth={false}>
+        <div className="flex items-center gap-10 py-10 md:gap-24">
           {houseImages.map(({ src, id }) => (
             <span
               key={id}
-              className="flex w-80 h-48 md:h-64 md:w-[27rem] shrink-0 md:last:mr-24 last:mr-10 cursor-pointer"
+              className="flex w-80 h-48 md:h-64 md:w-[27rem] shrink-0 transition duration-300 ease md:last:mr-24 last:mr-10 cursor-pointer hover:-rotate-1 shadow-xl hover:shadow-green-200"
             >
               <Image
-                className="object-cover transition-transform duration-150 ease-linear origin-center rounded-sm hover:-rotate-1"
+                className="object-cover rounded-sm"
                 src={src}
                 alt="modern house that is move in ready, ready to be sold"
                 priority
@@ -75,15 +113,16 @@ export const MarqueeEmployeeSlider = () => {
   return (
     <div className="w-full">
       <Marquee speed={50} gradientWidth={false}>
-        <div className="flex items-center gap-10 overflow-hidden md:gap-24">
-          {employeeImages.map(({ src, id, name, job }) => (
-            <div
+        <div className="flex items-center gap-10 py-10 md:gap-24">
+          {employeeImages.map(({ src, id, name, job, slug }) => (
+            <Link
+              href={`/team-members/${slug}`}
               key={id}
-              className="flex flex-col cursor-pointer group md:last:mr-24 last:mr-10 drop-shadow-md"
+              className="flex flex-col transition-transform duration-150 ease-linear cursor-pointer drop-shadow-md hover:scale-105 md:last:mr-24 last:mr-10 hover:rotate-2 hover:shadow-lg hover:shadow-green-200"
             >
               <div
                 key={id}
-                className="flex w-56 transition-transform duration-150 ease-linear origin-center sm:w-72 h-72 sm:h-80 shrink-0 group-hover:scale-105 "
+                className="flex w-56 sm:w-72 h-72 sm:h-80 shrink-0 "
               >
                 <Image
                   className="object-cover rounded-t-md"
@@ -92,15 +131,15 @@ export const MarqueeEmployeeSlider = () => {
                   priority
                 />
               </div>
-              <div className="flex flex-col items-center justify-center text-center transition-transform duration-150 ease-linear origin-center bg-gray-100 rounded-b-md group-hover:scale-105">
-                <h3 className="w-full pt-4 pb-1 text-xl font-medium md:text-2xl ">
+              <div className="flex flex-col items-center justify-center text-center bg-gray-100 rounded-b-md">
+                <h3 className="w-full pt-4 pb-1 text-xl font-medium md:text-2xl font-fraunces">
                   {name}
                 </h3>
-                <p className="w-full pb-4 text-sm font-bold uppercase md:text-md text-green-brand">
+                <p className="w-full pb-4 text-sm font-bold tracking-wide uppercase md:text-md text-green-brand">
                   {job}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Marquee>
