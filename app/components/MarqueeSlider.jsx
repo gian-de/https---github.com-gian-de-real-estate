@@ -3,23 +3,23 @@ import Image from "next/image";
 
 import Marquee from "react-fast-marquee";
 
-import house1 from "public/pexels-house-1.jpg";
-import house2 from "public/pexels-house-2.jpg";
-import house3 from "public/pexels-house-3.jpg";
-import house4 from "public/pexels-house-4.jpg";
-import house5 from "public/pexels-house-5.jpg";
-import house6 from "public/pexels-house-6.jpg";
-import house7 from "public/pexels-house-7.jpg";
-import house8 from "public/pexels-house-8.jpg";
-import house9 from "public/pexels-house-9.jpg";
+import house1 from "public/marquee-houses/pexels-house-1.jpg";
+import house2 from "public/marquee-houses/pexels-house-2.jpg";
+import house3 from "public/marquee-houses/pexels-house-3.jpg";
+import house4 from "public/marquee-houses/pexels-house-4.jpg";
+import house5 from "public/marquee-houses/pexels-house-5.jpg";
+import house6 from "public/marquee-houses/pexels-house-6.jpg";
+import house7 from "public/marquee-houses/pexels-house-7.jpg";
+import house8 from "public/marquee-houses/pexels-house-8.jpg";
+import house9 from "public/marquee-houses/pexels-house-9.jpg";
 
-import employee1 from "public/pexels-employee-1.jpg";
-import employee2 from "public/pexels-employee-2.jpg";
-import employee3 from "public/pexels-employee-3.jpg";
-import employee4 from "public/pexels-employee-4.jpg";
-import employee5 from "public/pexels-employee-5.jpg";
-import employee6 from "public/pexels-employee-6.jpg";
-import employee7 from "public/pexels-employee-7.jpg";
+import employee1 from "public/employees/pexels-employee-1.jpg";
+import employee2 from "public/employees/pexels-employee-2.jpg";
+import employee3 from "public/employees/pexels-employee-3.jpg";
+import employee4 from "public/employees/pexels-employee-4.jpg";
+import employee5 from "public/employees/pexels-employee-5.jpg";
+import employee6 from "public/employees/pexels-employee-6.jpg";
+import employee7 from "public/employees/pexels-employee-7.jpg";
 import Link from "next/link";
 
 const houseImages = [

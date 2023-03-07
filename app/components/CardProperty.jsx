@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import CarGarageImg from "../../public/garage.webp";
-import BedImg from "../../public/bed.webp";
-import ShowerImg from "../../public/shower.webp";
-import SofaImg from "../../public/sofa.webp";
+import CarGarageImg from "../../public/small-icons-for-card/garage.webp";
+import BedImg from "../../public/small-icons-for-card/bed.webp";
+import ShowerImg from "../../public/small-icons-for-card/shower.webp";
+import SofaImg from "../../public/small-icons-for-card/sofa.webp";
 
 const CardProperty = ({
   imgSrc,
@@ -23,7 +23,7 @@ const CardProperty = ({
         <div className="overflow-hidden rounded-t-md">
           <Image src={imgSrc} alt={title} className="object-cover h-60" />
         </div>
-        <div className="flex flex-col px-5 py-5 space-y-2 bg-white sm:pb-8 rounded-b-md">
+        <div className="flex flex-col h-full px-5 py-5 space-y-2 bg-white rounded-b-md">
           <h6 className="text-sm font-semibold tracking-widest uppercase text-green-brand">
             Auction: <span className="pl-3 md:pl-1">{date}</span>
           </h6>
