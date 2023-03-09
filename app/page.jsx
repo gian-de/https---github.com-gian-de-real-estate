@@ -23,6 +23,7 @@ import TestimonialCarousel from "./components/TestimonialCarousel";
 import CTAEmailInput from "./components/CTAEmailInput";
 import GuideBooksSrc from "../public/pexels-guide-books.jpg";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   return (
@@ -173,7 +174,9 @@ export default function HomePage() {
       <section className="px-6 py-2 mx-auto max-w-7xl md:px-12 md:py-16 lg:px-0">
         <ContactForm />
       </section>
-      <div className="py-80">spacer</div>
+      <section className="container px-6 mx-auto mt-32 max-w-7xl md:px-10">
+        <Footer />
+      </section>
     </>
   );
 }

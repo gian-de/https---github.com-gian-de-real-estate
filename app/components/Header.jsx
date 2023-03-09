@@ -13,8 +13,13 @@ import HamburgerMenu from "./svg/HamburgerMenu";
 const navLinks = [
   { name: "Browse properties", src: "/properties-for-sale" },
   { name: "About us", src: "/about-us" },
-  { name: "Join us", src: "/join-us" },
+  { name: "Blog", src: "/blog" },
   { name: "Contact", src: "/contact" },
+];
+const navLinksSubmenu = [
+  { name: "Buying", src: "/buying" },
+  { name: "Selling", src: "/selling" },
+  { name: "Manage", src: "/property-management" },
 ];
 
 export const Header = () => {
@@ -24,22 +29,19 @@ export const Header = () => {
   const [isLgBreakpoint, setIsLgBreakpoint] = useState(false);
   const mobileRef = useRef(null);
 
-  // const HandleClickOutside = (e) => {
-  //   if (e.target !== mobileRef.current) {
-  //     setMobileOpen(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("click", HandleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("click", HandleClickOutside);
-  //   };
-  // }, []);
-
-  const toggleMobileMenu = () => {
-    setMobileOpen(!mobileOpen);
+  const handleClickOutside = (e) => {
+    if (e.target !== mobileRef.current) {
+      setMobileOpen(false);
+    }
   };
+
+  // this useEffect is if mobile menu is open. close mobile menu if user clicks outside of mobile menu
+  useEffect(() => {
+    document.body.addEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const handleHover = () => {
     setDropdownOpen(true);
@@ -66,7 +68,7 @@ export const Header = () => {
       // onClick={(e) => e.stopPropagation()}
     >
       <div className="container relative flex items-center justify-between h-16 max-w-6xl p-5 mx-auto">
-        <Link href="/">
+        <Link href="/" className="flex shrink-0">
           <div className="flex shrink-0">
             <Image
               className="object-cover"
@@ -78,67 +80,82 @@ export const Header = () => {
             />
           </div>
         </Link>
-        <div
+        <button
+          id="navbar"
           className="absolute z-20 cursor-pointer right-8 top-3 lg:hidden"
-          onClick={toggleMobileMenu}
+          onClick={() => setMobileOpen((prev) => !prev)}
         >
           {mobileOpen ? <CloseMenu /> : <HamburgerMenu />}
-        </div>
+        </button>
 
         <nav
-          ref={mobileRef}
           className={`lg:flex ${
             mobileOpen
-              ? "top-16 pb-8 lg:pb-0 absolute bg-white w-full left-0 items-center justify-center lg:justify-end lg:w-auto lg:static lg:flex"
+              ? "top-16 overflow-y-auto overflow-x-hidden pb-8 z-20 lg:pb-0 absolute bg-white w-full left-0 items-center justify-center lg:justify-end lg:w-auto lg:static lg:flex"
               : "hidden"
           } ${isLgBreakpoint ? "inline-block" : ""}`}
         >
           {isLgBreakpoint || mobileOpen ? (
             <>
-              <ul className="flex flex-col items-center justify-center py-2 space-y-6 text-lg lg:py-0 lg:pl-3 lg:mr-32 lg:space-y-0 lg:text-base lg:gap-6 lg:flex lg:flex-row">
-                <li
-                  className="relative group"
-                  onMouseEnter={handleHover}
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                >
-                  <p className="flex items-center justify-center transition duration-100 ease-in-out cursor-pointer lg:cursor-default whitespace-nowrap hover:text-green-brand">
-                    Services
-                    <span className="flex items-center justify-center mt-1 text-gray-400">
-                      <ChevronDown />
-                    </span>
-                  </p>
-                  {dropdownOpen && (
-                    <ul className="z-30 flex flex-col items-center mt-2 -mx-40 text-center transition duration-500 ease-in-out bg-gray-200 sm:-mx-60 lg:-mx-0 lg:items-start lg:mt-0 lg:bg-white lg:-ml-6 lg:rounded-sm lg:shadow-lg lg:absolute lg:invisible lg:group-hover:visible">
-                      <li className="flex lg:w-full lg:hover:bg-green-brand lg:hover:text-white">
+              <ul
+                ref={mobileRef}
+                className="flex flex-col items-center justify-center py-2 space-y-5 text-lg lg:py-0 lg:pl-3 lg:space-y-0 lg:text-base lg:gap-6 lg:flex lg:flex-row lg:justify-between"
+              >
+                {!isLgBreakpoint ? (
+                  navLinksSubmenu
+                    .filter((link) => link.name !== "Manage")
+                    .map((link) => (
+                      <li key={link.src}>
                         <Link
-                          href="/buying"
-                          className="px-6 py-2"
-                          onClick={handleClick}
+                          href={link.src}
+                          className={`transition duration-100 ease-in-out whitespace-nowrap hover:text-green-brand ${
+                            currentPathname === link.src
+                              ? "text-green-brand"
+                              : ""
+                          }`}
                         >
-                          Buying
+                          {link.name}
                         </Link>
                       </li>
-                      <li className="flex lg:w-full lg:hover:bg-green-brand lg:hover:text-white">
-                        <Link
-                          href="/selling"
-                          className="px-6 py-2"
-                          onClick={handleClick}
-                        >
-                          Selling
-                        </Link>
-                      </li>
-                      <li className="flex lg:w-full lg:hover:bg-green-brand lg:hover:text-white">
-                        <Link
-                          href="/property-management"
-                          className="px-6 py-2"
-                          onClick={handleClick}
-                        >
-                          Manage
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </li>
+                    ))
+                ) : (
+                  // Only visible large break point + nav hover dropdown
+                  <li
+                    className="relative group"
+                    onMouseEnter={handleHover}
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                  >
+                    <p className="flex items-center justify-center transition duration-100 ease-in-out cursor-pointer lg:cursor-default whitespace-nowrap hover:text-green-brand">
+                      Services
+                      <span className="flex items-center justify-center text-gray-400">
+                        <ChevronDown />
+                      </span>
+                    </p>
+
+                    {dropdownOpen && (
+                      <ul className="z-30 flex flex-col items-center text-center transition duration-500 ease-in-out bg-gray-200 lg:pt-2 lg:-ml-4 lg:items-start lg:bg-white lg:rounded-sm lg:shadow-lg lg:absolute lg:invisible lg:group-hover:visible">
+                        {navLinksSubmenu.map((link) => (
+                          <li
+                            key={link.src}
+                            className="flex lg:w-full lg:hover:bg-green-brand lg:hover:text-white"
+                          >
+                            <Link
+                              href={link.src}
+                              className={`transition px-5 py-2 duration-100 ease-in-out whitespace-nowrap hover:text-white ${
+                                currentPathname === link.src
+                                  ? "text-green-brand "
+                                  : ""
+                              }`}
+                            >
+                              {link.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                )}
+
                 {navLinks.map((link) => (
                   <li key={link.src}>
                     <Link
@@ -152,9 +169,10 @@ export const Header = () => {
                   </li>
                 ))}
               </ul>
-              <div className="flex items-center justify-center w-full pt-2 lg:pt-0 lg:w-auto">
+              {/* mobile nav button inside hamburger */}
+              <div className="flex items-center justify-center pt-2 lg:hidden">
                 <Link
-                  className="w-3/5 px-4 py-1 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
+                  className="px-10 py-2 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
                   href="/"
                 >
                   Get a free appraisal
@@ -163,6 +181,14 @@ export const Header = () => {
             </>
           ) : null}
         </nav>
+        <div className="items-center justify-center hidden w-full pt-2 lg:flex lg:pt-0 lg:w-fit">
+          <Link
+            className="w-3/5 px-4 py-1 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
+            href="/"
+          >
+            Get a free appraisal
+          </Link>
+        </div>
       </div>
     </header>
   );

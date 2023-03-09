@@ -37,7 +37,7 @@ const CTAEmailInput = ({
         <h4 className="text-3xl font-medium text-green-brand font-fraunces md:text-4xl ">
           {title}
         </h4>
-        <p className="mx-auto text-base md:text-lg">{text}</p>
+        <p className="pr-3 mx-auto text-base md:text-lg">{text}</p>
         {checkData.map((text, idx) => (
           <div className="flex space-x-2" key={idx}>
             <span className="text-green-brand">
