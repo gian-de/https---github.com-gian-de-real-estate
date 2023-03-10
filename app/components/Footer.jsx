@@ -145,7 +145,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <p className="text-sm">© 2023 Green Havens. All Rights Reserved.</p>
           <div className="flex pt-2 space-x-3 md:pt-0">
-            <button className="text-gray-600 transition duration-200 ease-in-out hover:text-black">
+            <button className="text-gray-600 transition duration-150 ease-in-out hover:text-green-brand">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -155,7 +155,7 @@ const Footer = () => {
                 <TwitterSVG className="w-6 h-6 sm:w-8 sm:h-8" />
               </a>
             </button>
-            <button className="text-gray-600 transition duration-200 ease-in-out hover:text-black">
+            <button className="text-gray-600 transition duration-150 ease-in-out hover:text-green-brand">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -165,7 +165,7 @@ const Footer = () => {
                 <LinkedInSVG className="w-6 h-6 sm:w-8 sm:h-8" />
               </a>
             </button>
-            <button className="text-gray-600 transition duration-200 ease-in-out hover:text-black">
+            <button className="text-gray-600 transition duration-150 ease-in-out hover:text-green-brand">
               <a
                 target="_blank"
                 rel="noopener noreferrer"

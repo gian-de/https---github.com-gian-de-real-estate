@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
 
 import ArrowRight from "./svg/ArrowRight";
 
@@ -47,52 +49,95 @@ const data = [
   },
 ];
 
-const TestimonialCarousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideWidthRef = useRef(null);
+const Testimonials = () => {
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const swiperRef = useRef(null);
+
+  const handlePrevButtonClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const handleNextButtonClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const handleBreakpointChange = () => {
+    if (window.innerWidth < 768) {
+      setSlidesPerView(1);
+    } else if (window.innerWidth < 1340) {
+      setSlidesPerView(2);
+    } else {
+      setSlidesPerView(3);
+    }
+  };
+  // this useEffect is to render either 1, 2, or 3 slides depending on the vw
+  useEffect(() => {
+    window.addEventListener("resize", handleBreakpointChange);
+
+    return () => window.removeEventListener("resize", handleBreakpointChange);
+  }, []);
 
   return (
-    <div className="flex flex-col overflow-hidden py-14 md:py-20 bg-green-dark">
-      <div
-        id="testimonial-carousel"
-        ref={slideWidthRef}
-        className="flex items-start gap-8 px-14 scroll-smooth sm:gap-14 sm:mx-0 sm:min-w-[80rem] lg:min-w-[140rem]"
+    <div className="py-20 bg-green-dark">
+      <Swiper
+        className="px-10 lg:px-16"
+        ref={swiperRef}
+        spaceBetween={80}
+        slidesPerView={slidesPerView}
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+        }}
       >
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-full border-2 rounded-md sm:w-1/2 lg:w-1/3 xl:w-1/4 border-green-brand"
-          >
-            <div className="flex flex-col p-6 space-y-3 bg-transparent md:space-y-5 text-slate-50">
-              <h5 className="flex text-2xl md:text-3xl lg:text-4xl font-fraunces">
-                {item.title}
-              </h5>
-              <p className="flex text-lg md:text-xl text-slate-50/80">
-                {item.description}
+        {data.map((testimonial) => (
+          <SwiperSlide key={testimonial.id}>
+            <div className="flex flex-col max-w-2xl p-8 mx-auto space-y-4 border-2 rounded-lg shadow-md border-green-brand bg-green-dark text-slate-100">
+              <h4 className="flex text-2xl md:text-3xl lg:text-4xl font-fraunces ">
+                {testimonial.title}
+              </h4>
+              <p className=" lg:text-lg text-slate-100/70">
+                {testimonial.description}
               </p>
-              <div className="flex items-center space-x-1 text-lg font-medium whitespace-nowrap">
-                <p className="flex">{item.name}</p>
-                <span className="flex text-green-400">
-                  {item.company ? "-" : null}
-                </span>
-                <p className="flex text-green-400">{item?.company}</p>
+              <div className="flex items-center">
+                <div className="flex items-center space-x-1 text-lg font-medium whitespace-nowrap">
+                  <p className="flex">{testimonial.name}</p>
+
+                  <span className="flex text-green-400">
+                    {testimonial.company ? "-" : null}
+                  </span>
+                  <p className="flex text-green-400">{testimonial?.company}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
-      {data.length > 1 && (
-        <div className="flex mt-5 space-x-4 ml-14 sm:ml-32 md:ml-56 w-fit text-slate-100">
-          <button className="p-4 rounded-full bg-[#7C9C714D] -rotate-180 hover:bg-black transition-colors duration-200 ease">
+        <div className="flex mt-5 space-x-4 ml-14 sm:ml-32 w-fit text-slate-100">
+          <button
+            onClick={handlePrevButtonClick}
+            className="p-4 rounded-full bg-[#7C9C714D] -rotate-180 hover:bg-black transition-colors duration-200 ease"
+          >
             <ArrowRight />
           </button>
-          <button className="p-4 transition-colors duration-200 rounded-full bg-green-brand hover:bg-black ease">
+
+          <button
+            onClick={handleNextButtonClick}
+            className="p-4 transition-colors duration-200 rounded-full bg-green-brand hover:bg-black ease"
+          >
             <ArrowRight />
           </button>
         </div>
-      )}
+      </Swiper>
     </div>
   );
 };
 
-export default TestimonialCarousel;
+export default Testimonials;

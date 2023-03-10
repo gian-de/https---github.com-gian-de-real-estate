@@ -17,7 +17,9 @@ const CTASection = ({ imgSrc, title, description, btnSrc, btnText }) => {
         <h4 className="text-2xl font-fraunces sm:text-3xl md:text-4xl lg:text-5xl">
           {title}
         </h4>
-        <p className="max-w-xs text-sm">{description}</p>
+        <p className="max-w-xs text-sm lg:max-w-md md:text-base lg:text-lg">
+          {description}
+        </p>
         <CTAButton anchorSrc={btnSrc} text={btnText} />
       </div>
     </div>

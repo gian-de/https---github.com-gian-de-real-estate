@@ -12,7 +12,7 @@ const CTAImageRight = () => {
           Get your property <br className="hidden sm:block" /> valued,{" "}
           <span className="ml-1 text-green-brand">for free</span>
         </h4>
-        <p className="max-w-sm text-sm">
+        <p className="max-w-sm text-sm md:text-base">
           Thanks to company, we sold our home in under one month. The team was
           great to work with, true professionals.
         </p>
