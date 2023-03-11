@@ -4,7 +4,7 @@ import Link from "next/link";
 const CardBlog = ({ imgSrc, slug, categoryTag, title, description, date }) => {
   return (
     <Link href={slug}>
-      <div className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
+      <article className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
         <div className="overflow-hidden rounded-t-md">
           <Image src={imgSrc} alt={title} className="object-cover h-56" />
         </div>
@@ -18,7 +18,7 @@ const CardBlog = ({ imgSrc, slug, categoryTag, title, description, date }) => {
             {date}
           </p>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };

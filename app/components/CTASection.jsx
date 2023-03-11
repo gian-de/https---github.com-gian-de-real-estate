@@ -13,11 +13,11 @@ const CTASection = ({ imgSrc, title, description, btnSrc, btnText }) => {
           className="object-contain mx-auto"
         />
       </div>
-      <div className="flex flex-col items-center justify-center pt-6 mx-auto space-y-6 text-center lg:pt-0 lg:text-left lg:items-start text-slate-50">
-        <h4 className="text-2xl font-fraunces sm:text-3xl md:text-4xl lg:text-5xl">
+      <div className="flex flex-col items-center justify-center pt-6 mx-auto space-y-6 text-center text-white lg:pt-0 lg:text-left lg:items-start">
+        <h4 className="text-3xl font-fraunces md:text-4xl lg:text-5xl">
           {title}
         </h4>
-        <p className="max-w-xs text-sm lg:max-w-md md:text-base lg:text-lg">
+        <p className="max-w-xs text-sm sm:max-w-md sm:text-base lg:text-lg">
           {description}
         </p>
         <CTAButton anchorSrc={btnSrc} text={btnText} />

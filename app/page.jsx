@@ -50,7 +50,7 @@ export default function HomePage() {
           <p className="w-4/5 mx-auto text-center md:text-lg">
             We connect buyers and sellers of premium rural property
           </p>
-          <div className="grid w-full px-6 pt-6 sm:pb-6 sm:px-10 sm:grid-cols-2 gap-14 xl:px-0">
+          <div className="grid w-full px-6 pt-6 sm:pb-6 sm:px-10 sm:grid-cols-2 gap-14 xl:px-4">
             <div className="w-full">
               <CardImageText
                 imgSrc={SellingHomeSrc}
@@ -70,7 +70,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-green-dark">
+      <section className="bg-green-dark xl:px-4">
         <CTASection
           imgSrc={CTAHomepageSrc}
           title="Whitby's leading property team"
@@ -86,7 +86,7 @@ export default function HomePage() {
         <h4 className="px-5 text-3xl text-center font-fraunces whitespace-nowrap sm:text-4xl md:text-5xl">
           Featured properties
         </h4>
-        <div className="container grid max-w-6xl gap-10 px-12 mx-auto sm:px-20 md:px-8 md:grid-cols-3 md:place-items-stretch xl:px-0 md:py-16 md:gap-6">
+        <div className="container grid max-w-6xl gap-10 px-12 mx-auto sm:px-20 md:px-8 md:grid-cols-3 md:place-items-stretch xl:px-4 md:py-16 md:gap-6">
           <CardProperty
             imgSrc={Property1Src}
             slug="/properties/cosy-riverside-cottage"
@@ -124,14 +124,14 @@ export default function HomePage() {
           />
         </div>
       </section>
-      <section>
+      <section className="xl:px-4">
         <CTAImageRight />
       </section>
       <section className="py-12 bg-gray-100 md:space-y-0 md:py-20">
         <h4 className="px-5 text-3xl text-center font-fraunces whitespace-nowrap sm:text-4xl md:text-5xl">
           Learn on our blog
         </h4>
-        <div className="container grid max-w-6xl gap-10 px-12 pt-8 mx-auto md:pt-10 sm:grid-cols-2 sm:px-8 md:grid-cols-3 xl:px-0 md:gap-6">
+        <div className="container grid max-w-6xl gap-10 px-12 pt-8 mx-auto md:pt-10 sm:grid-cols-2 sm:px-8 md:grid-cols-3 xl:px-4 md:gap-6">
           <CardBlog
             imgSrc={GovTaxSrc}
             slug="/blog/the-government-upcoming-property-tax"
@@ -165,6 +165,7 @@ export default function HomePage() {
         <CTAEmailInput
           imgSrc={GuideBooksSrc}
           title="The definitive guide"
+          titleExtra="to Cotswolds property"
           text="The definitive guide to buying &selling property in Whitby, start learning now."
           checkText1="Where to buy"
           checkText2="Get started with investing"
@@ -173,9 +174,6 @@ export default function HomePage() {
       </section>
       <section className="px-6 py-2 mx-auto max-w-7xl md:px-12 md:py-16 lg:px-0">
         <ContactForm />
-      </section>
-      <section className="container px-6 mx-auto mt-32 max-w-7xl md:px-10">
-        <Footer />
       </section>
     </>
   );

@@ -8,6 +8,7 @@ import CTAButton from "./CTAButton";
 const CTAEmailInput = ({
   imgSrc,
   title,
+  titleExtra,
   text,
   checkText1,
   checkText2,
@@ -34,8 +35,8 @@ const CTAEmailInput = ({
         />
       </div>
       <div className="flex flex-col px-6 md:px-2 justify-center max-w-sm mx-auto space-y-4 sm:ml-[25%] md:ml-0 md:max-w-md">
-        <h4 className="text-3xl font-medium text-green-brand font-fraunces md:text-4xl ">
-          {title}
+        <h4 className="flex-col text-3xl font-medium text-green-brand font-fraunces md:text-4xl ">
+          {title} <span className="text-black ">{titleExtra}</span>
         </h4>
         <p className="pr-3 mx-auto text-base md:text-lg">{text}</p>
         {checkData.map((text, idx) => (

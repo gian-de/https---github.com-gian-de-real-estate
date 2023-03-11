@@ -89,7 +89,7 @@ const employeeImages = [
 export const MarqueeHouseSlider = () => {
   return (
     <div className="w-full">
-      <Marquee speed={90} gradientWidth={false}>
+      <Marquee speed={120} gradientWidth={false}>
         <div className="flex items-center gap-10 py-10 md:gap-24">
           {houseImages.map(({ src, id }) => (
             <span
@@ -112,7 +112,7 @@ export const MarqueeHouseSlider = () => {
 export const MarqueeEmployeeSlider = () => {
   return (
     <div className="w-full">
-      <Marquee speed={50} gradientWidth={false}>
+      <Marquee speed={80} gradientWidth={false}>
         <div className="flex items-center gap-10 py-10 md:gap-24">
           {employeeImages.map(({ src, id, name, job, slug }) => (
             <Link

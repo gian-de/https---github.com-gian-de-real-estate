@@ -51,20 +51,17 @@ const data = [
 
 const Testimonials = () => {
   const [slidesPerView, setSlidesPerView] = useState(1);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const swiperRef = useRef(null);
 
   const handlePrevButtonClick = () => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slidePrev();
-      setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
 
   const handleNextButtonClick = () => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slideNext();
-      setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
 
@@ -85,7 +82,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div className="py-20 bg-green-dark">
+    <div className="py-20 text-white bg-green-dark">
       <Swiper
         className="px-10 lg:px-16"
         ref={swiperRef}

@@ -67,7 +67,7 @@ export const Header = () => {
       className="sticky top-0 z-20 w-full bg-white shadow-md"
       // onClick={(e) => e.stopPropagation()}
     >
-      <div className="container relative flex items-center justify-between h-16 max-w-6xl p-5 mx-auto">
+      <div className="container relative flex items-center justify-between h-16 p-5 mx-auto max-w-7xl">
         <Link href="/" className="flex shrink-0">
           <div className="flex shrink-0">
             <Image
@@ -173,7 +173,7 @@ export const Header = () => {
               <div className="flex items-center justify-center pt-2 lg:hidden">
                 <Link
                   className="px-10 py-2 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
-                  href="/"
+                  href="/appraisal"
                 >
                   Get a free appraisal
                 </Link>
@@ -184,7 +184,7 @@ export const Header = () => {
         <div className="items-center justify-center hidden w-full pt-2 lg:flex lg:pt-0 lg:w-fit">
           <Link
             className="w-3/5 px-4 py-1 tracking-tighter text-center text-white transition rounded-full whitespace-nowrap lg:w-auto lg:flex bg-green-brand hover:bg-black"
-            href="/"
+            href="/appraisal"
           >
             Get a free appraisal
           </Link>

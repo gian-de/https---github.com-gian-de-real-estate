@@ -19,7 +19,7 @@ const CardProperty = ({
 }) => {
   return (
     <Link href={slug}>
-      <div className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
+      <article className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
         <div className="overflow-hidden rounded-t-md">
           <Image src={imgSrc} alt={title} className="object-cover h-60" />
         </div>
@@ -76,7 +76,7 @@ const CardProperty = ({
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };
