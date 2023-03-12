@@ -1,3 +1,6 @@
+"use client";
+import { useEffect } from "react";
+
 import HeroServicesPages from "../components/HeroServicesPages";
 
 import HeroSrc from "../../public/pexels-manage-property-page.webp";
@@ -10,9 +13,12 @@ import CTAImageSrc from "../../public/pexels-guide-books.jpg";
 import ContactForm from "../components/ContactForm";
 
 const ManagePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      <div className="bg-green-50/30">
+      <div className="bg-gray-50">
         <div className="container px-6 mx-auto sm:px-10 md:px-16 xl:px-10 max-w-7xl ">
           <HeroServicesPages
             description="cotswolds real estate agents"

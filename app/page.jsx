@@ -11,9 +11,9 @@ import CardBlog from "./components/CardBlog";
 import SellingHomeSrc from "../public/selling-your-home-src.jpg";
 import BuyingPropertySrc from "../public/buying-property-src.jpg";
 import CTAHomepageSrc from "../public/cta-homepage.jpg";
-import Property1Src from "../public/featured-houses/cosy-riverside-cottage.jpg";
-import Property2Src from "../public/featured-houses/charming-classic-home.jpg";
-import Property3Src from "../public/featured-houses/private-lifestyle-block.jpg";
+import Property1Src from "../public/houses-featured/cosy-riverside-cottage.jpg";
+import Property2Src from "../public/houses-featured/charming-classic-home.jpg";
+import Property3Src from "../public/houses-featured/private-lifestyle-block.jpg";
 import CTAImageRight from "./components/CTAImageRight";
 
 import GovTaxSrc from "../public/blog/government-tax-blog.jpg";
@@ -23,7 +23,6 @@ import TestimonialCarousel from "./components/TestimonialCarousel";
 import CTAEmailInput from "./components/CTAEmailInput";
 import GuideBooksSrc from "../public/pexels-guide-books.jpg";
 import ContactForm from "./components/ContactForm";
-import Footer from "./components/Footer";
 
 export default function HomePage() {
   return (
@@ -82,11 +81,11 @@ export default function HomePage() {
       <section className="py-8">
         <MarqueeEmployeeSlider />
       </section>
-      <section className="py-12 space-y-8 bg-gray-100 md:space-y-0">
-        <h4 className="px-5 text-3xl text-center font-fraunces whitespace-nowrap sm:text-4xl md:text-5xl">
+      <section className="py-12 space-y-10 bg-gray-100 lg:space-y-12">
+        <h4 className="px-5 text-4xl font-medium text-center font-fraunces whitespace-nowrap md:text-5xl">
           Featured properties
         </h4>
-        <div className="container grid max-w-6xl gap-10 px-12 mx-auto sm:px-20 md:px-8 md:grid-cols-3 md:place-items-stretch xl:px-4 md:py-16 md:gap-6">
+        <div className="container grid max-w-6xl gap-10 px-16 mx-auto sm:gap-6 sm:grid-cols-2 sm:px-8 lg:px-8 lg:grid-cols-3 xl:px-4 lg:gap-y-0 lg:gap-x-6">
           <CardProperty
             imgSrc={Property1Src}
             slug="/properties/cosy-riverside-cottage"

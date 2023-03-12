@@ -73,7 +73,9 @@ const MeetOurTeam = () => {
               />
             </div>
             <div className="p-3 text-center bg-white md:py-6">
-              <p className="text-3xl font-medium font-fraunces">{card.name}</p>
+              <p className="text-xl font-medium sm:text-3xl font-fraunces">
+                {card.name}
+              </p>
               <p className="text-lg font-medium capitalize text-green-brand">
                 {card.job}
               </p>

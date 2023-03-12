@@ -7,6 +7,7 @@ import ShowerImg from "../../public/small-icons-for-card/shower.webp";
 import SofaImg from "../../public/small-icons-for-card/sofa.webp";
 
 const CardProperty = ({
+  sold,
   imgSrc,
   slug,
   date,
@@ -20,16 +21,28 @@ const CardProperty = ({
   return (
     <Link href={slug}>
       <article className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
-        <div className="overflow-hidden rounded-t-md">
+        <div className="relative flex flex-col overflow-hidden rounded-t-md">
           <Image src={imgSrc} alt={title} className="object-cover h-60" />
+          {sold && (
+            <div className="absolute z-30 px-5 py-1 text-base font-semibold tracking-widest text-white uppercase bg-yellow-500 rounded-full bottom-5 right-5">
+              sold
+            </div>
+          )}
         </div>
-        <div className="flex flex-col h-full px-5 py-5 space-y-2 bg-white rounded-b-md">
-          <h6 className="text-sm font-semibold tracking-widest uppercase text-green-brand">
-            Auction: <span className="pl-3 md:pl-1">{date}</span>
-          </h6>
+        <div className="flex flex-col h-full px-5 py-5 space-y-3 bg-white md:space-y-4 rounded-b-md">
+          {sold && (
+            <p className="text-sm font-semibold tracking-widest text-yellow-500 uppercase">
+              property sold
+            </p>
+          )}
+          {date && (
+            <p className="text-sm font-semibold tracking-widest uppercase text-green-brand">
+              Auction: <span className="pl-3 md:pl-1">{date}</span>
+            </p>
+          )}
           <h4 className="text-2xl font-fraunces">{title}</h4>
           <p className="">{description}</p>
-          <div className="flex items-center justify-around md:justify-between">
+          <div className="flex items-center justify-around lg:justify-between">
             <div className="flex items-center py-2 space-x-2 text-lg md:py-0">
               <span className="flex">{bedQty}</span>
               <span className="flex">
