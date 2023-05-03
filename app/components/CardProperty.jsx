@@ -7,6 +7,7 @@ import ShowerImg from "../../public/small-icons-for-card/shower.webp";
 import SofaImg from "../../public/small-icons-for-card/sofa.webp";
 
 const CardProperty = ({
+  buyNow,
   sold,
   imgSrc,
   slug,
@@ -20,9 +21,14 @@ const CardProperty = ({
 }) => {
   return (
     <Link href={slug}>
-      <article className="flex-col transition-all duration-200 shadow hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
-        <div className="relative flex flex-col overflow-hidden rounded-t-md">
-          <Image src={imgSrc} alt={title} className="object-cover h-60" />
+      <article className="flex-col transition-all duration-200 shadow-md hover:-translate-x-2 hover:-translate-y-2 hover:drop-shadow-xl">
+        <div className="relative flex flex-col overflow-hidden rounded-t-md h-60">
+          <Image
+            src={imgSrc}
+            alt={title}
+            className="object-cover w-full h-60"
+            fill
+          />
           {sold && (
             <div className="absolute z-30 px-5 py-1 text-base font-semibold tracking-widest text-white uppercase bg-yellow-500 rounded-full bottom-5 right-5">
               sold
@@ -38,6 +44,11 @@ const CardProperty = ({
           {date && (
             <p className="text-sm font-semibold tracking-widest uppercase text-green-brand">
               Auction: <span className="pl-3 md:pl-1">{date}</span>
+            </p>
+          )}
+          {buyNow && (
+            <p className="text-sm font-semibold tracking-widest uppercase text-green-brand">
+              Buy Now: <span className="pl-3 md:pl-1">{`$${buyNow}`}</span>
             </p>
           )}
           <h4 className="text-2xl font-fraunces">{title}</h4>

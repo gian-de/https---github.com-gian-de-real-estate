@@ -13,7 +13,6 @@ const AboutPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   return (
     <>
       <header className="py-10 bg-gray-100 md:py-20">
@@ -46,10 +45,10 @@ const AboutPage = () => {
           </div>
         </div>
       </header>
-      <section className="-mt-10 bg-gray-100 md:-mt-16">
+      <section className="py-6 -mt-10 bg-gray-100 md:-mt-16 md:py-10">
         <MarqueeEmployeeSlider />
       </section>
-      <section className="px-10 py-12 mx-auto max-w-7xl md:py-20">
+      <section className="px-10 py-16 mx-auto max-w-7xl md:py-24">
         <div>
           <Image
             src={HeroSrc}

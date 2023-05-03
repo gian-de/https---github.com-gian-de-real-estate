@@ -89,7 +89,7 @@ export default function HomePage() {
           <CardProperty
             imgSrc={Property1Src}
             slug="/properties/cosy-riverside-cottage"
-            date="January 15, 2023"
+            date="January 25, 2023"
             title="Cosy riverside cottage, the perfect retreat"
             description="This property is ideal for a family looking to settle down"
             bedQty="4"
@@ -112,7 +112,7 @@ export default function HomePage() {
 
           <CardProperty
             imgSrc={Property3Src}
-            slug="/properties/private-lifestyle-block-hidden-behind-a-lodge"
+            slug="/properties/private-lifestyle-block-hidden-behind-a-hedge"
             date="March 22, 2023"
             title="Private lifestyle block hidden behind a hedge"
             description="This property is ideal for a family looking to settle down"

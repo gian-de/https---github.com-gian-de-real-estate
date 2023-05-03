@@ -67,7 +67,7 @@ export const Header = () => {
       className="sticky top-0 z-20 w-full bg-white shadow-md"
       // onClick={(e) => e.stopPropagation()}
     >
-      <div className="container relative flex items-center justify-between h-16 p-5 mx-auto max-w-7xl">
+      <div className="container relative flex items-center justify-between h-16 p-5 mx-auto lg:py-8 max-w-7xl">
         <Link href="/" className="flex shrink-0">
           <div className="flex shrink-0">
             <Image
